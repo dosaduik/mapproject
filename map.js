@@ -1,13 +1,10 @@
 var map;
 
-var src = 'http://www.digitari.ca/kml/2016HalloweenOliver.kmz';
-var heroIcon = 'http://icons.iconarchive.com/icons/martin-berube/people/48/knight-icon.png';
+var src = 'https://www.digitari.ca/kml/2016HalloweenOliver.kmz';
+var heroIcon = 'https://www.digitari.ca/mapproject/icons/knight-icon.png';
 var currentLatLng = null;
 var heroMarker = null;
 var backgroundSound = null;
-var watchID = null;
-var kmlLayer = null;
-
 
 var bonus = new Howl({
         src: ['./sound/dustyroom_multimedia_select_tone.mp3'],
@@ -18,15 +15,13 @@ function showPosition(position) {
 
     currentLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     
-    if (heroMarker === null){
-        heroMarker = new google.maps.Marker({
-            position: currentLatLng,
-            map: map,
-            icon: heroIcon
-        });
-
-        heroMarker.setMap(map);
-    }
+    heroMarker = new google.maps.Marker({
+        position: currentLatLng,
+        map: map,
+        icon: heroIcon
+    });
+    
+    heroMarker.setMap(map);
     
     heroMarker.setPosition(currentLatLng);   
 }
@@ -41,7 +36,10 @@ function initMap() {
         src: ['./sound/difficult_desicions.mp3'],
         //src: ['http://127.0.0.1:61159/sound/music_zapsplat_trick_or_treat.mp3'],
         //src: ['http://127.0.0.1:61159/sound/music_zapsplat_disco_streets.mp3'],
-         loop: true
+         loop: true,
+         preload: true,
+         html5: true,
+         autoplay: true
     });
 
     backgroundSound.play();
@@ -286,7 +284,7 @@ function initMap() {
                 ]
     });
 
-    kmlLayer = new google.maps.KmlLayer(src, {
+    var kmlLayer = new google.maps.KmlLayer(src, {
       suppressInfoWindows: true,
       preserveViewport: false,
       map: map
@@ -301,9 +299,12 @@ function initMap() {
     
     getLocation();
     
-    watchID = navigator.geolocation.watchPosition(showPosition, showError);
-    
+    setTimeout(function(){
+        getLocation();
+    }, 1000);
+
 }
+
 
 function getLocation() {
     if (navigator.geolocation) {
