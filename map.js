@@ -32,6 +32,29 @@ function updatePosition(){
 }
 
 function initMap() {
+    
+    JSZipUtils.getBinaryContent('http://127.0.0.1:58575/2016HalloweenOliver.kmz', function(err, data) {
+        if(err) {
+            throw err; // or handle err
+        }
+
+        JSZip.loadAsync(data).then(function (results) {
+            var decompressed = results;
+
+            return decompressed.file("doc.kml").async("string");
+            
+        }).then(function (xml) {
+            console.log(xml);
+
+            xmlDoc = $.parseXML( xml ),
+            $xml = $( xmlDoc ),
+            mapLink = $xml.find( "href" );
+            mapLink[0].textContent
+        });
+    });
+
+    
+    
     backgroundSound = new Howl({
         src: ['./sound/difficult_desicions.mp3'],
         //src: ['http://127.0.0.1:61159/sound/music_zapsplat_trick_or_treat.mp3'],
