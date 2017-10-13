@@ -34,7 +34,8 @@ function updatePosition(){
 function initMap() {
     
     JSZipUtils.getBinaryContent('http://127.0.0.1:58575/2016HalloweenOliver.kmz', function(err, data) {
-        if(err) {
+    //JSZipUtils.getBinaryContent(src, function(err, data) {
+         if(err) {
             throw err; // or handle err
         }
 
@@ -46,10 +47,16 @@ function initMap() {
         }).then(function (xml) {
             console.log(xml);
 
-            xmlDoc = $.parseXML( xml ),
+            var xmlDoc = $.parseXML( xml ),
             $xml = $( xmlDoc ),
             mapLink = $xml.find( "href" );
-            mapLink[0].textContent
+            var url = mapLink[0].textContent
+            
+            $.get( url, function( data ) {
+                var kmlDoc = $.parseXML(data);
+                
+                
+            });
         });
     });
 
@@ -59,10 +66,10 @@ function initMap() {
         src: ['./sound/difficult_desicions.mp3'],
         //src: ['http://127.0.0.1:61159/sound/music_zapsplat_trick_or_treat.mp3'],
         //src: ['http://127.0.0.1:61159/sound/music_zapsplat_disco_streets.mp3'],
-         loop: true,
-         preload: true,
-         html5: true,
-         autoplay: true
+        loop: true,
+        preload: true,
+        html5: true,
+        autoplay: true
     });
 
     backgroundSound.play();
