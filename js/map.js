@@ -243,8 +243,7 @@ var backgroundSound = new Howl({
         //src: ['./sound/SpookyScarySkeletons.mp3'],
         //src: ['./sound/music_zapsplat_disco_streets.mp3'],
         loop: true,
-        preload: true,
-        html5: true
+        preload: true
     });
 var backgroundStarted = false;
 
@@ -260,10 +259,6 @@ var bonus = new Howl({
 
 function enableSound(){
     bonus.play();
-    if (!backgroundStarted){
-        backgroundSound.play();
-        backgroundStarted = true;
-    }
 }
 
 function showPosition(position) {
@@ -333,6 +328,14 @@ function initMap() {
     });
     
     monitorLocation();
+    
+    setTimeout(function(){
+        if (!backgroundStarted){
+            backgroundSound.play();
+            backgroundStarted = true;
+        }
+        
+    }, 10000)
 }
 
 
