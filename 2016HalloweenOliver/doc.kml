@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>2016 Halloween Oliver</name>
+    <Style id="icon-ci-1-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-1-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-10-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-10.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-10-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-10.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-10">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-10-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-10-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-11-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-11.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-11-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-11.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-11">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-11-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-11-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-12-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-12.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-12-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-12.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-12">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-12-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-12-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-13-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-13.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-13-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-13.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-13">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-13-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-13-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-14-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-14.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-14-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-14.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-14">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-14-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-14-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-15-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-15.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-15-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-15.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-15">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-15-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-15-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-16-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-16.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-16-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-16.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-16">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-16-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-16-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-17-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-17.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-17-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-17.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-17">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-17-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-17-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-18-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-18.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-18-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-18.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-18">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-18-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-18-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-19-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-19.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-19-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-19.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-19">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-19-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-19-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-2-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-2.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-2-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-2.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-2">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-2-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-2-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-20-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-20.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-20-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-20.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-20">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-20-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-20-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-21-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-21.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-21-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-21.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-21">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-21-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-21-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-22-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-22.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-22-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-22.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-22">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-22-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-22-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-3-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-3.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-3-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-3.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-3">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-3-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-3-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-4-nodesc-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-4.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-ci-4-nodesc-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-4.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-ci-4-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-4-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-4-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-5-nodesc-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-5.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-ci-5-nodesc-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-5.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-ci-5-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-5-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-5-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-6-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-6.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-6-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-6.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-6">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-6-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-6-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-7-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-7.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-7-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-7.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-7">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-7-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-7-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-8-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-8.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-8-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-8.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-8">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-8-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-8-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-9-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-9.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-9-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-9.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="16" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-9">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-9-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-9-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>11913-103 Ave</name>
+      <description><![CDATA[11913-103 Ave<br>Oliver Lane Condos<br><br>Candy on the steps and some scary decorations!]]></description>
+      <styleUrl>#icon-ci-1</styleUrl>
+      <Point>
+        <coordinates>
+          -113.527547,53.544479,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11915 103 Ave</name>
+      <description><![CDATA[11915 103 Ave<br>Oliver Lane Condos]]></description>
+      <styleUrl>#icon-ci-2</styleUrl>
+      <Point>
+        <coordinates>
+          -113.527647,53.544478,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>12028 103 Ave</name>
+      <description><![CDATA[12028 103 Ave<br>The Dakota]]></description>
+      <styleUrl>#icon-ci-3</styleUrl>
+      <Point>
+        <coordinates>
+          -113.53021,53.544784,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11928 102 Ave</name>
+      <styleUrl>#icon-ci-4-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -113.528564,53.543031,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11920 102 Ave</name>
+      <styleUrl>#icon-ci-5-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -113.528073,53.54303,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10227 119 St</name>
+      <description><![CDATA[10227 119 St <br>Style Manor]]></description>
+      <styleUrl>#icon-ci-6</styleUrl>
+      <Point>
+        <coordinates>
+          -113.526288,53.543654,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10235 119 St</name>
+      <description><![CDATA[10235 119 St <br>Princeton Manor]]></description>
+      <styleUrl>#icon-ci-7</styleUrl>
+      <Point>
+        <coordinates>
+          -113.526288,53.543983,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10236 119 St</name>
+      <description>10236 119 St</description>
+      <styleUrl>#icon-ci-8</styleUrl>
+      <Point>
+        <coordinates>
+          -113.52713,53.54383,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10160 119 St</name>
+      <description><![CDATA[10160 119 St <br>The Chanticleer]]></description>
+      <styleUrl>#icon-ci-9</styleUrl>
+      <Point>
+        <coordinates>
+          -113.527308,53.542261,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10145 119 St</name>
+      <description><![CDATA[10145 119 St<br>Rideau Tower]]></description>
+      <styleUrl>#icon-ci-10</styleUrl>
+      <Point>
+        <coordinates>
+          -113.526402,53.54204,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10230 118 St</name>
+      <description>10230 118 St</description>
+      <styleUrl>#icon-ci-11</styleUrl>
+      <Point>
+        <coordinates>
+          -113.525246,53.543838,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11811 102 Ave.</name>
+      <description>11811 102 Ave.</description>
+      <styleUrl>#icon-ci-12</styleUrl>
+      <Point>
+        <coordinates>
+          -113.525536,53.542813,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11616 102 Ave</name>
+      <description>11616 102 Ave</description>
+      <styleUrl>#icon-ci-13</styleUrl>
+      <Point>
+        <coordinates>
+          -113.521931,53.543293,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11635 102 Ave</name>
+      <description><![CDATA[11635 102 Ave<br>Oak Tower]]></description>
+      <styleUrl>#icon-ci-14</styleUrl>
+      <Point>
+        <coordinates>
+          -113.522635,53.542805,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11648 103 Ave</name>
+      <description>11648 103 Ave</description>
+      <styleUrl>#icon-ci-15</styleUrl>
+      <Point>
+        <coordinates>
+          -113.522612,53.544613,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10260 116 St</name>
+      <description><![CDATA[10260 116 St <br>Peyton Place]]></description>
+      <styleUrl>#icon-ci-16</styleUrl>
+      <Point>
+        <coordinates>
+          -113.521574,53.544359,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11640 103 Ave</name>
+      <description>11640 103 Ave</description>
+      <styleUrl>#icon-ci-17</styleUrl>
+      <Point>
+        <coordinates>
+          -113.522309,53.544786,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11602 103 Ave</name>
+      <description>11602 103 Ave</description>
+      <styleUrl>#icon-ci-18</styleUrl>
+      <Point>
+        <coordinates>
+          -113.521865,53.544626,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10160 115 St</name>
+      <description><![CDATA[10160 115 St<br>Hyde Park]]></description>
+      <styleUrl>#icon-ci-19</styleUrl>
+      <Point>
+        <coordinates>
+          -113.519721,53.542372,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11510 102 Ave</name>
+      <description>11510 102 Ave</description>
+      <styleUrl>#icon-ci-20</styleUrl>
+      <Point>
+        <coordinates>
+          -113.51991,53.543235,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10210 121 St NW</name>
+      <description><![CDATA[10210 121 St<br>Christ Anglican Church<br>Salvation!!!]]></description>
+      <styleUrl>#icon-ci-21</styleUrl>
+      <Point>
+        <coordinates>
+          -113.531202,53.543447,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11313 102 Ave NW</name>
+      <description><![CDATA[11313 102 AVENUE NW EDMONTON AB<br>Bubble Houses]]></description>
+      <styleUrl>#icon-ci-22</styleUrl>
+      <Point>
+        <coordinates>
+          -113.5163423,53.5429114,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

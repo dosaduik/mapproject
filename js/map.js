@@ -329,13 +329,10 @@ function initMap() {
     
     monitorLocation();
     
-    setTimeout(function(){
-        if (!backgroundStarted){
-            backgroundSound.play();
-            backgroundStarted = true;
-        }
-        
-    }, 10000)
+    backgroundSound.play();
+    
+    readPoints();
+
 }
 
 
@@ -374,6 +371,22 @@ function centerMapOnEdmonton()
         center: {lat: 53.5333, lng: -113.5000},
         zoom: 13
     });   
+}
+
+function readPoints(){
+    $.ajax({
+        type: "GET",
+        url: "2016HalloweenOliver\\doc.kml",
+        dataType: "xml",
+        success: function(xml) {
+            $(xml).find('Point').each(function(){
+
+                var coord = $(this).find('coordinates').text();
+                console.log(coord)
+            });
+        }
+    });
+    
 }
 
 
