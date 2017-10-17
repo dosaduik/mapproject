@@ -257,6 +257,14 @@ var bonus = new Howl({
         preload: true
     });
 
+var scaryZoneSounds = new Howl({
+        src: ['./sound/bottlerocket_Whoosh_Twisted Vocal_04.mp3', './sound/zapsplat_horror_cinematic_hit_wooden_dark_scary_hard.mp3'],
+        preload: true
+    });
+
+var scaryZones = [];
+var searchRadius = 50;
+
 function enableSound(){
     bonus.play();
 }
@@ -277,6 +285,8 @@ function showPosition(position) {
     
     heroMarker.setPosition(currentLatLng);   
     map.setCenter(currentLatLng);
+    
+    checkIfWithinScaryZone(currentLatLng);
 }
 
 function initMap() {
@@ -329,7 +339,7 @@ function initMap() {
     
     monitorLocation();
     
-    backgroundSound.play();
+    //backgroundSound.play();
     
     readPoints();
 
@@ -383,10 +393,32 @@ function readPoints(){
 
                 var coord = $(this).find('coordinates').text();
                 console.log(coord)
+                var coordParts = coord.split(',');
+                var lat = parseFloat(coordParts[1]);
+                var lng = parseFloat(coordParts[0]);
+                var latlng = new google.maps.LatLng(lat, lng);
+                
+                scaryZones.push(latlng);
             });
         }
     });
     
+}
+
+function checkIfWithinScaryZone(currentLocation){
+    for (var i = 0; i < scaryZones.length; i++) {
+        var inZone = google.maps.geometry.spherical.computeDistanceBetween(
+            scaryZones[i], 
+            currentLocation) <= 10; //within 10 meters
+        
+        if (inZone) {
+            console.log('=> is in searchArea');
+            scaryZoneSounds.play();
+            
+        } else {
+            console.log('=> is NOT in searchArea');
+        }
+    }
 }
 
 
