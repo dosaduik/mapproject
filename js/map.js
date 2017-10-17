@@ -257,13 +257,20 @@ var bonus = new Howl({
         preload: true
     });
 
+var playingScaryZoneSounds = false;
 var scaryZoneSounds = new Howl({
         src: ['./sound/bottlerocket_Whoosh_Twisted Vocal_04.mp3', './sound/zapsplat_horror_cinematic_hit_wooden_dark_scary_hard.mp3'],
-        preload: true
+        preload: true,
+        onplay: function(e){
+            playingScaryZoneSounds = true;
+        },
+        onend: function(e){
+            playingScaryZoneSounds = false;
+        }
     });
 
 var scaryZones = [];
-var searchRadius = 50;
+var searchRadius = 20;
 
 function enableSound(){
     bonus.play();
@@ -302,7 +309,7 @@ function initMap() {
             return decompressed.file("doc.kml").async("string");
             
         }).then(function (xml) {
-            console.log(xml);
+            //console.log(xml);
 
             var xmlDoc = $.parseXML( xml ),
             $xml = $( xmlDoc ),
@@ -348,7 +355,7 @@ function initMap() {
 
 function monitorLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition, showError);
+        navigator.geolocation.watchPosition(showPosition, showError, {enableHighAccuracy: true});
     } else {
         console.log("Geolocation is not supported by this browser.");
         centerMapOnEdmonton();
@@ -392,7 +399,7 @@ function readPoints(){
             $(xml).find('Point').each(function(){
 
                 var coord = $(this).find('coordinates').text();
-                console.log(coord)
+                //console.log(coord)
                 var coordParts = coord.split(',');
                 var lat = parseFloat(coordParts[1]);
                 var lng = parseFloat(coordParts[0]);
@@ -409,12 +416,13 @@ function checkIfWithinScaryZone(currentLocation){
     for (var i = 0; i < scaryZones.length; i++) {
         var inZone = google.maps.geometry.spherical.computeDistanceBetween(
             scaryZones[i], 
-            currentLocation) <= 10; //within 10 meters
+            currentLocation) <= searchRadius; 
         
         if (inZone) {
             console.log('=> is in searchArea');
-            scaryZoneSounds.play();
-            
+            if (!playingScaryZoneSounds){
+                scaryZoneSounds.play();
+            }
         } else {
             console.log('=> is NOT in searchArea');
         }
