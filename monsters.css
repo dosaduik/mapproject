@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+}
+
+img{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+#monster{
+    display: none;
+}
+
+#ghostbat{
+    display: none;
+}
+
+#boss{
+    display: none;
+}
