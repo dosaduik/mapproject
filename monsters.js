@@ -8,7 +8,12 @@ var monsterMetaDataArray =
                 {
                     src: ['./sound/soundbits_ScreamsShouts2_Monsters_Monster_Roar_Growl_159.mp3'], preload: true 
                 }),
-            hitpoints: 30
+            gotcha: new Howl(
+                {
+                    src: ['./sound/zapsplat_human_bite_potato_chips_crisps_many_x3.mp3'], preload: true
+                }),
+            hitpoints: 30,
+            scorePoints: 1
         },
         { 
             name: 'Bats',
@@ -17,16 +22,26 @@ var monsterMetaDataArray =
                 {
                     src: ['./sound/soundbits_Screams&Shouts_monster_male_clean_021.mp3'], preload: true 
                 }),
-            hitpoints: 50
+            gotcha: new Howl(
+                {
+                    src: ['./sound/zapsplat_human_bite_potato_chips_crisps_many_x3.mp3'], preload: true
+                }),
+            hitpoints: 50,
+            scorePoints: 3
         },
         {
             name: 'Boss',
             src: './assets/gifs/malrothv.gif',
             sound: new Howl(
                 {
-                    src: ['./sound/soundbits_SotD 2013-10-22 (Monster).mp3'], preload: true 
+                    src: ['./sound/soundbits_ScreamsShouts_monster_processed_051.mp3'], preload: true 
                 }),
-            hitpoints: 100
+            gotcha: new Howl(
+                {
+                    src: ['./sound/zapsplat_human_bite_potato_chips_crisps_many_x3.mp3'], preload: true
+                }),
+            hitpoints: 70,
+            scorePoints: 5
         },
     ];
 
@@ -41,29 +56,38 @@ var hitSound = new Howl(
                     src: ['./sound/zapsplat_horror_axe_chop_impact_person_fleshy_wound_guts_002_14320.mp3'], 
                     preload: true 
                 });
+var deathScream = new Howl(
+                {
+                    src: ['./sound/soundbits_ScreamsShouts2_Child_Shout_026.mp3'], 
+                    preload: true 
+                });
+
+var hitPower = 10;
+var totalPlayerHitPoints = 500;
+var score = 0;
 
 function getRandomInt(min, max) {
    return Math.round(Math.random() * (max - min)) + min;
- }
+}
 
-function makeMonsterAppear(){
+function makeMonstersAppear(){
     
     var monsterIndex = getRandomInt(0, monsterMetaDataArray.length - 1);
-    console.log(monsterIndex);
     
     var monsterMetaData = monsterMetaDataArray[monsterIndex];
     
     var monsterImg = $($('#monster')[0]);
     
-    var src = monsterMetaData.src; //monsterImg.attr('src');
+    var src = monsterMetaData.src;
     
     var newMonsterImg = $('<img/>');
     
-    newMonsterImg[0].src = src; //'./assets/gifs/monster-walking.gif';
+    newMonsterImg[0].src = src;
     
     newMonsterImg.attr('data-id', 1);
     newMonsterImg.attr('data-type', monsterMetaData.name);
     newMonsterImg.attr('data-hitpoints', monsterMetaData.hitpoints);
+    newMonsterImg.attr('data-scorepoints', monsterMetaData.scorePoints);
     
     $('body').append(newMonsterImg);
     
@@ -100,7 +124,16 @@ function makeMonsterAppear(){
     };
 
     newMonsterImg.animate(properties, 2000, "swing", function(){
-    //            alert('done');
+        monsterMetaData.gotcha.play();
+        
+        totalPlayerHitPoints = totalPlayerHitPoints - 50;
+        console.log('Player Hit Points: ' + totalPlayerHitPoints);
+        $('.playerStatus').text(totalPlayerHitPoints);
+        
+        if (totalPlayerHitPoints <= 0){
+            deathScream.play();
+        }
+
     });
     
     return newMonsterImg;
@@ -118,141 +151,133 @@ function hasAttr(element, attrName){
     return false;
 }
 
-function hitMonster(e){
 
-    var ev = e;
+var hittingMonster = false;
+function hitMonster(element){
+    if (!hittingMonster)
+    {
+        console.log('Hitting Monster');
+        hittingMonster = true;
+        
+        var hitPointsVal = $(element).attr('data-hitpoints');
+        console.log(hitPointsVal);
+        var hitPoints = parseInt(hitPointsVal);
+        console.log(hitPoints);
+        hitPoints = hitPoints - hitPower;
+        $(element).attr('data-hitpoints', hitPoints);
 
-    hitSound.play();
-    $(this).remove();
+        hitSound.play();
 
-    var monsterImgEl =  makeMonsterAppear();
-    $(monsterImgEl[0]).on('mousemove', hitMonster);
+        if (hitPoints <=0)
+        {
+            console.log('Killed Monster')
+            $(element).stop();
+            $(element).remove();
+            
+            hittingMonster = false;
+            
+            if (monsterCount >= monsterMax){
+                setTimeout(function(){
+                    window.location.replace('index.html');
+                }, 5000);
+            }
+        }    
+    }
 }
 
+var monsterMax = 5;
+var monsterCount = 0;
+var interval = null;
+
+function generateMonster(){
+    if (monsterCount <= monsterMax){
+       
+        makeMonstersAppear();
+        monsterCount++;
+
+
+    }else{
+        clearInterval(interval)
+    }
+}
+
+function generateMonsters(callback, times)
+{
+    var internalCallback = function(tick, counter) {
+        return function() {
+            if (--tick >= 0) {
+                var intervalTime = getRandomInt(400, 5000);
+                window.setTimeout(internalCallback, intervalTime);
+                callback();
+                
+            }
+        }
+    }(times, 0);
+
+    var intervalTime = getRandomInt(400, 2000);
+    window.setTimeout(internalCallback, intervalTime);
+};
+
 $(function(){
-//    for(var i = 0; i < 5; i++)
-//    {
-        //setTimeout(
-      var monsterImgEl =  makeMonsterAppear();
-                //, 1000);
-//    }
+
+    generateMonsters(generateMonster, 5);
     
-    $(window).click(function(e){
-        console.log( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+    
+    $('.playerStatus').text(totalPlayerHitPoints);
+
+    $(window).on('mousemove', function(e){
+        e.preventDefault();
+        var element = document.elementFromPoint(e.pageX, e.pageY);
         
+        if (hasAttr(element, 'data-hitpoints')){
+            hitMonster(element);
+        }else{
+            hittingMonster = false;
+        }
+        
+        console.log(element.nodeName);
     });
     
-    $(monsterImgEl[0]).on('mousemove', hitMonster);
-    
-    document.addEventListener('touchmove', function(e) {
-//        e.preventDefault();
+    document.addEventListener('touchmove', function(e){
+        e.preventDefault();
         var touch = e.touches[0];
         var element = document.elementFromPoint(touch.pageX, touch.pageY);
         
         if (hasAttr(element, 'data-hitpoints')){
-            hitSound.play();
-            $(element).remove();
-            
-            var monsterImgEl =  makeMonsterAppear();
-            $(monsterImgEl[0]).on('mousemove', hitMonster);
-
-        }
-        
-        console.log(touch.pageX + " - " + touch.pageY);
-    }, false);
-    
-//    var mc = new Hammer(window);
-//    
-//    //var mc = new Hammer(monsterImgEl[0]);
-//   // add a "PAN" recognizer to it (all directions)
-//    mc.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 }) );
-//  
-//    
-//    // tie in the handler that will be called
-//    mc.on("panmove", handleDrag);
-    
-    //mc.on("swipe", handleDrag);
-
-
-    // listen to events...
-//    mc.on("swipe", function(ev) {
-//        var e = ev;
-//    });
-    
-    var lastPosX = 0;
-    var lastPosY = 0;
-    var isDragging = false;
-    function handleDrag(ev) {
-
-        // for convience, let's get a reference to our object
-        var elem = ev.target;
-
-        // DRAG STARTED
-        // here, let's snag the current position
-        // and keep track of the fact that we're dragging
-        if ( ! isDragging ) {
-            isDragging = true;
-            lastPosX = elem.offsetLeft;
-            lastPosY = elem.offsetTop;
-
-        }
-
-        // we simply need to determine where the x,y of this
-        // object is relative to where it's "last" known position is
-        // NOTE: 
-        //    deltaX and deltaY are cumulative
-        // Thus we need to always calculate 'real x and y' relative
-        // to the "lastPosX/Y"
-        var posX = ev.deltaX + lastPosX;
-        var posY = ev.deltaY + lastPosY;
-        
-        var element = document.elementFromPoint(posX, posY);
-        
-        if (hasAttr(element, 'data-hitpoints')){
-            //hitSound.play();
-            $(element).remove();
+            hitMonster(element);
         }else{
-            //missSound.play();
+            hittingMonster = false;
         }
-
-        // DRAG ENDED
-        // this is where we simply forget we are dragging
-        if (ev.isFinal) {
-            isDragging = false;
-
-        }
-    }
-    
-    function lineIntersect(x1,y1,x2,y2, x3,y3,x4,y4) {
-        var x=((x1*y2-y1*x2)*(x3-x4)-(x1-x2)*(x3*y4-y3*x4))/((x1-x2)*(y3-y4)-(y1-y2)*(x3-x4));
-        var y=((x1*y2-y1*x2)*(y3-y4)-(y1-y2)*(x3*y4-y3*x4))/((x1-x2)*(y3-y4)-(y1-y2)*(x3-x4));
-        if (isNaN(x)||isNaN(y)) {
-            return false;
-        } else {
-            if (x1>=x2) {
-                if (!(x2<=x&&x<=x1)) {return false;}
-            } else {
-                if (!(x1<=x&&x<=x2)) {return false;}
-            }
-            if (y1>=y2) {
-                if (!(y2<=y&&y<=y1)) {return false;}
-            } else {
-                if (!(y1<=y&&y<=y2)) {return false;}
-            }
-            if (x3>=x4) {
-                if (!(x4<=x&&x<=x3)) {return false;}
-            } else {
-                if (!(x3<=x&&x<=x4)) {return false;}
-            }
-            if (y3>=y4) {
-                if (!(y4<=y&&y<=y3)) {return false;}
-            } else {
-                if (!(y3<=y&&y<=y4)) {return false;}
-            }
-        }
-        return true;
-    }
-
-    
+    }, false);
 });
+
+function lineIntersect(x1,y1,x2,y2, x3,y3,x4,y4) {
+    var x=((x1*y2-y1*x2)*(x3-x4)-(x1-x2)*(x3*y4-y3*x4))/((x1-x2)*(y3-y4)-(y1-y2)*(x3-x4));
+    var y=((x1*y2-y1*x2)*(y3-y4)-(y1-y2)*(x3*y4-y3*x4))/((x1-x2)*(y3-y4)-(y1-y2)*(x3-x4));
+    if (isNaN(x)||isNaN(y)) {
+        return false;
+    } else {
+        if (x1>=x2) {
+            if (!(x2<=x&&x<=x1)) {return false;}
+        } else {
+            if (!(x1<=x&&x<=x2)) {return false;}
+        }
+        if (y1>=y2) {
+            if (!(y2<=y&&y<=y1)) {return false;}
+        } else {
+            if (!(y1<=y&&y<=y2)) {return false;}
+        }
+        if (x3>=x4) {
+            if (!(x4<=x&&x<=x3)) {return false;}
+        } else {
+            if (!(x3<=x&&x<=x4)) {return false;}
+        }
+        if (y3>=y4) {
+            if (!(y4<=y&&y<=y3)) {return false;}
+        } else {
+            if (!(y3<=y&&y<=y4)) {return false;}
+        }
+    }
+    return true;
+}
 

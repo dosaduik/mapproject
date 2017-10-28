@@ -462,13 +462,22 @@ function checkIfWithinScaryZone(currentLocation){
         
         if (inZone) {
             console.log('=> is in searchArea');
-            if (!playingScaryZoneSounds){
-                scaryZoneSounds.play();
-            }
+            
+            inScaryZone();
         } else {
             console.log('=> is NOT in searchArea');
         }
     }
+}
+
+function inScaryZone(){
+    if (!playingScaryZoneSounds){
+        scaryZoneSounds.play();
+    }    
+    
+    setTimeout(function(){
+        window.location.replace('monsters.html');
+    }, 5000)
 }
 
 
