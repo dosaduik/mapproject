@@ -303,23 +303,23 @@ function initMap() {
             throw err; // or handle err
         }
 
-        JSZip.loadAsync(data).then(function (results) {
-            var decompressed = results;
+        // JSZip.loadAsync(data).then(function (results) {
+        //     var decompressed = results;
 
-            return decompressed.file("doc.kml").async("string");
+        //     return decompressed.file("doc.kml").async("string");
             
-        }).then(function (xml) {
-            //console.log(xml);
+        // }).then(function (xml) {
+        //     //console.log(xml);
 
-            var xmlDoc = $.parseXML( xml ),
-            $xml = $( xmlDoc ),
-            mapLink = $xml.find( "href" );
-            var url = mapLink[0].textContent
+        //     var xmlDoc = $.parseXML( xml ),
+        //     $xml = $( xmlDoc ),
+        //     mapLink = $xml.find( "href" );
+        //     var url = mapLink[0].textContent
             
-            $.get( url, function( data ) {
-                var kmlDoc = $.parseXML(data);   
-            });
-        });
+        //     $.get( url, function( data ) {
+        //         var kmlDoc = $.parseXML(data);   
+        //     });
+        // });
     });
 
  
