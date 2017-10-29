@@ -239,11 +239,13 @@ var currentLatLng = null;
 var heroMarker = null;
 var backgroundSound = new Howl({
         //src: ['./sound/difficult_desicions.mp3'],
-        src: ['./sound/music_zapsplat_trick_or_treat.mp3'],
+        //src: ['./sound/music_zapsplat_trick_or_treat.mp3'],
         //src: ['./sound/SpookyScarySkeletons.mp3'],
         //src: ['./sound/music_zapsplat_disco_streets.mp3'],
+        src: ['./sound/Deadmau5 - Creep.mp3'],
         loop: true,
-        preload: true
+        preload: true,
+        html5: true
     });
 var backgroundStarted = false;
 
@@ -273,7 +275,7 @@ var scaryZones = [];
 var searchRadius = 20;
 
 function enableSound(){
-    bonus.play();
+  backgroundSound.play();
 }
 
 function showPosition(position) {
@@ -297,7 +299,10 @@ function showPosition(position) {
 }
 
 function initMap() {
-    
+    if (screenfull.enabled) {
+      screenfull.request();
+    }
+
     JSZipUtils.getBinaryContent('./2016HalloweenOliver.kmz', function(err, data) {
         if(err) {
             throw err; // or handle err
@@ -358,6 +363,8 @@ function initMap() {
     readPoints();
 
 }
+
+
 
 function CenterControl(controlDiv, map) {
 
@@ -452,6 +459,18 @@ function readPoints(){
         }
     });
     
+  }
+
+function locationAlreadyCompleted(coords){
+  var gameData = getGameData();
+
+  for(var i = 0; i < gameData.completedLocations.length; i++){
+    if (coords.lat() === gameData.completedLocations.lat && coords.lng() === gameData.completedLocations.lng){
+      return true;
+    }
+  }
+
+  return false;
 }
 
 function checkIfWithinScaryZone(currentLocation){
@@ -459,24 +478,28 @@ function checkIfWithinScaryZone(currentLocation){
         var inZone = google.maps.geometry.spherical.computeDistanceBetween(
             scaryZones[i], 
             currentLocation) <= searchRadius; 
-        
-        if (inZone) {
+  
+        var completed = locationAlreadyCompleted(scaryZones[i]);
+
+        if (inZone && !completed) {
             console.log('=> is in searchArea');
             
-            inScaryZone();
+            inScaryZone(scaryZones[i]);
         } else {
             console.log('=> is NOT in searchArea');
         }
     }
 }
 
-function inScaryZone(){
+var scaryZoneCoords = null;
+function inScaryZone(coords){
     if (!playingScaryZoneSounds){
+        scaryZoneCoords = coords;
         scaryZoneSounds.play();
     }    
     
     setTimeout(function(){
-        window.location.replace('monsters.html');
+        window.location.replace('monsters.html' + '?coords=' + JSON.stringify(scaryZoneCoords));
     }, 5000)
 }
 

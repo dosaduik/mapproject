@@ -62,12 +62,29 @@ var deathScream = new Howl(
                     preload: true 
                 });
 
+var levelClearSound = new Howl(
+    {
+        src: ['./sound/multimedia_game_musical_success_complete_orchestral_horns_001.mp3'], 
+        preload: true,
+        onend: function(){
+            levelClear();
+        }
+    });
+
+
+
 var hitPower = 10;
 var totalPlayerHitPoints = 500;
 var score = 0;
 
 function getRandomInt(min, max) {
    return Math.round(Math.random() * (max - min)) + min;
+}
+
+function levelClear(){
+
+    window.location.replace('index.html');
+
 }
 
 function makeMonstersAppear(){
@@ -151,6 +168,15 @@ function hasAttr(element, attrName){
     return false;
 }
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 
 var hittingMonster = false;
 function hitMonster(element){
@@ -171,15 +197,24 @@ function hitMonster(element){
         if (hitPoints <=0)
         {
             console.log('Killed Monster')
+            monstersKilled++;
             $(element).stop();
             $(element).remove();
             
             hittingMonster = false;
             
-            if (monsterCount >= monsterMax){
-                setTimeout(function(){
-                    window.location.replace('index.html');
-                }, 5000);
+            if (monstersKilled >= monsterMax){
+                monsterCount = 0;
+
+                var gameData = getGameData();
+
+                gameData.level++;
+                var coords = getParameterByName('coords');
+                gameData.completedLocations.push({coords: coords});
+ 
+                saveGameData(gameData);
+                levelClearSound.play();
+                
             }
         }    
     }
@@ -188,6 +223,7 @@ function hitMonster(element){
 var monsterMax = 5;
 var monsterCount = 0;
 var interval = null;
+var monstersKilled = 0;
 
 function generateMonster(){
     if (monsterCount <= monsterMax){
@@ -220,6 +256,10 @@ function generateMonsters(callback, times)
 
 $(function(){
 
+    if (screenfull.enabled) {
+        screenfull.request();
+    }
+
     generateMonsters(generateMonster, 5);
     
     
@@ -251,33 +291,4 @@ $(function(){
     }, false);
 });
 
-function lineIntersect(x1,y1,x2,y2, x3,y3,x4,y4) {
-    var x=((x1*y2-y1*x2)*(x3-x4)-(x1-x2)*(x3*y4-y3*x4))/((x1-x2)*(y3-y4)-(y1-y2)*(x3-x4));
-    var y=((x1*y2-y1*x2)*(y3-y4)-(y1-y2)*(x3*y4-y3*x4))/((x1-x2)*(y3-y4)-(y1-y2)*(x3-x4));
-    if (isNaN(x)||isNaN(y)) {
-        return false;
-    } else {
-        if (x1>=x2) {
-            if (!(x2<=x&&x<=x1)) {return false;}
-        } else {
-            if (!(x1<=x&&x<=x2)) {return false;}
-        }
-        if (y1>=y2) {
-            if (!(y2<=y&&y<=y1)) {return false;}
-        } else {
-            if (!(y1<=y&&y<=y2)) {return false;}
-        }
-        if (x3>=x4) {
-            if (!(x4<=x&&x<=x3)) {return false;}
-        } else {
-            if (!(x3<=x&&x<=x4)) {return false;}
-        }
-        if (y3>=y4) {
-            if (!(y4<=y&&y<=y3)) {return false;}
-        } else {
-            if (!(y3<=y&&y<=y4)) {return false;}
-        }
-    }
-    return true;
-}
 
