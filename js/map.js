@@ -465,7 +465,10 @@ function locationAlreadyCompleted(coords){
   var gameData = getGameData();
 
   for(var i = 0; i < gameData.completedLocations.length; i++){
-    if (coords.lat() === gameData.completedLocations.lat && coords.lng() === gameData.completedLocations.lng){
+      
+    var completedLocation = JSON.parse(gameData.completedLocations[i].coords);
+    if (coords.lat() === completedLocation.lat 
+        && coords.lng() === completedLocation.lng){
       return true;
     }
   }

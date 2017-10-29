@@ -209,7 +209,9 @@ function hitMonster(element){
                 var gameData = getGameData();
 
                 gameData.level++;
+                gameData.playerHitPoints = totalPlayerHitPoints;
                 var coords = getParameterByName('coords');
+
                 gameData.completedLocations.push({coords: coords});
  
                 saveGameData(gameData);
@@ -262,7 +264,9 @@ $(function(){
 
     generateMonsters(generateMonster, 5);
     
+    var gameData = getGameData();
     
+    totalPlayerHitPoints = gameData.playerHitPoints;
     $('.playerStatus').text(totalPlayerHitPoints);
 
     $(window).on('mousemove', function(e){

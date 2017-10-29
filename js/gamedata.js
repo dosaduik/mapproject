@@ -10,6 +10,11 @@ function getGameData(){
     {
         gameData.level = 0;
     }
+    
+    if (!gameData.playerHitPoints)
+    {
+        gameData.playerHitPoints = 500;
+    }
 
     if (!gameData.completedLocations)
     {
