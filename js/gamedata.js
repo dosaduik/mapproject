@@ -27,3 +27,7 @@ function getGameData(){
 function saveGameData(gameData){
     Cookies.set('gameData', JSON.stringify(gameData), { expires: 3650 });
 }
+
+function clearGameData(){
+    Cookies.set('gameData', '');
+}

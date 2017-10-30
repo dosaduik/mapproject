@@ -145,7 +145,8 @@ function makeMonstersAppear(){
         
         totalPlayerHitPoints = totalPlayerHitPoints - 50;
         console.log('Player Hit Points: ' + totalPlayerHitPoints);
-        $('.playerStatus').text(totalPlayerHitPoints);
+        var gameData = getGameData();
+        $('.playerStatus').html('Hit Points: ' + totalPlayerHitPoints + '<br/>Levels Complete: ' + gameData.level);
         
         if (totalPlayerHitPoints <= 0){
             deathScream.play();
@@ -267,7 +268,7 @@ $(function(){
     var gameData = getGameData();
     
     totalPlayerHitPoints = gameData.playerHitPoints;
-    $('.playerStatus').text(totalPlayerHitPoints);
+    $('.playerStatus').html('Hit Points: ' + totalPlayerHitPoints + '<br/>Levels Complete: ' + gameData.level);
 
     $(window).on('mousemove', function(e){
         e.preventDefault();

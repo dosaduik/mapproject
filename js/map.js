@@ -299,9 +299,7 @@ function showPosition(position) {
 }
 
 function initMap() {
-    if (screenfull.enabled) {
-      screenfull.request();
-    }
+
 
     JSZipUtils.getBinaryContent('./2016HalloweenOliver.kmz', function(err, data) {
         if(err) {
@@ -333,7 +331,13 @@ function initMap() {
         center: new google.maps.LatLng(53.542746304851434, -113.52584484874876),
         zoom: 16,
         mapTypeId: 'terrain',
-        styles: scaryMapStyle
+        styles: scaryMapStyle,
+        zoomControl: true,
+        mapTypeControl: false,
+        scaleControl: true,
+        streetViewControl: false,
+        rotateControl: true,
+        fullscreenControl: true        
     });
     
     // Create the DIV to hold the control and call the CenterControl()
@@ -379,25 +383,35 @@ function CenterControl(controlDiv, map) {
     controlUI.style.marginBottom = '22px';
     controlUI.style.textAlign = 'center';
     controlUI.style.width = '200px';
-    controlUI.style.height = '50px';
+    controlUI.style.height = '100px';
     controlUI.title = 'Click to recenter the map';
     controlDiv.appendChild(controlUI);
 
     // Set CSS for the control interior.
     var controlText = document.createElement('div');
-    controlText.style.color = 'rgb(25,25,25)';
+    controlText.style.color = 'gold';
     controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
     controlText.style.fontSize = '16px';
     controlText.style.lineHeight = '38px';
     controlText.style.paddingLeft = '5px';
     controlText.style.paddingRight = '5px';
-    controlText.innerHTML = 'Center Map';
+
+    var gameData = getGameData();
+
+    controlText.innerHTML = 'Hit Points: ' + gameData.playerHitPoints + '<br/>Levels Complete: ' + gameData.level;
     controlUI.appendChild(controlText);
 
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener('click', function() {
 
       map.setCenter(currentLatLng);
+
+      clearGameData();
+
+
+      // if (screenfull.enabled) {
+      //   screenfull.request();
+      // }
     });
 
 }
