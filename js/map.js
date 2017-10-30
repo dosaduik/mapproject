@@ -383,7 +383,7 @@ function CenterControl(controlDiv, map) {
     controlUI.style.marginBottom = '22px';
     controlUI.style.textAlign = 'center';
     controlUI.style.width = '200px';
-    controlUI.style.height = '100px';
+    //controlUI.style.height = '100px';
     controlUI.title = 'Click to recenter the map';
     controlDiv.appendChild(controlUI);
 
