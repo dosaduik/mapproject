@@ -11,7 +11,7 @@ function getGameData(){
         gameData.level = 0;
     }
     
-    if (!gameData.playerHitPoints)
+    if (gameData.playerHitPoints === undefined || gameData.playerHitPoints === null)
     {
         gameData.playerHitPoints = 500;
     }

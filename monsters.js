@@ -59,7 +59,10 @@ var hitSound = new Howl(
 var deathScream = new Howl(
                 {
                     src: ['./sound/soundbits_ScreamsShouts2_Child_Shout_026.mp3'], 
-                    preload: true 
+                    preload: true,
+                    onend: function(){
+                        levelClear();
+                    } 
                 });
 
 var levelClearSound = new Howl(
@@ -153,10 +156,6 @@ function makeMonstersAppear(){
         
         if (totalPlayerHitPoints <= 0){
             deathScream.play();
-
-
-
-            levelClear();
         }
 
     });
@@ -271,7 +270,7 @@ $(function(){
     }
     var gameData = getGameData();
     
-    monsterMax = gameData.level + 1
+    monsterMax = 10;//gameData.level + 1
     generateMonsters(generateMonster, monsterMax);
     
     totalPlayerHitPoints = gameData.playerHitPoints;
