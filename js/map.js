@@ -79,15 +79,22 @@ var scaryMapStyle = [
                       }
                     ]
                   },
-                  {
-                    "featureType": "poi",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                      {
-                        "color": "#6f9ba5"
-                      }
-                    ]
-                  },
+				  {
+						featureType: "poi",
+						elementType: "labels",
+						stylers: [
+							  { visibility: "off" }
+						]
+					},
+//                  {
+//                   "featureType": "poi",
+//                    "elementType": "labels.text.fill",
+//                   "stylers": [
+//                      {
+//                        "color": "#6f9ba5"
+//                      }
+//                    ]
+//                  },
                   {
                     "featureType": "poi",
                     "elementType": "labels.text.stroke",
