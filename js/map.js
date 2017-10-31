@@ -279,6 +279,19 @@ var scaryZoneSounds = new Howl({
         }
     });
 
+var cheers = new Howl({
+        src: ['./sound/human_crowd_25_people_cheer_shout_yay.mp3'],
+        preload: true
+    });
+
+var completedAllAreas = new Howl({
+        src: ['./sound/multimedia_game_musical_success_complete_orchestral_horns_002.mp3'],
+        preload: true,
+        onend: function(e){
+            cheers.play();
+        }
+    });
+
 var scaryZones = [];
 var searchRadius = 20;
 
@@ -308,8 +321,8 @@ function showPosition(position) {
 
       $('.center-div').css('color', 'red').html('Game Over<br/>Click here to Play Again?').fadeIn('slow');
       $('.center-div').click(function(e){
-        window.location.replace('index.html');
-    });
+            window.location.replace('index.html');
+        });
     }
     else{
       if (heroMarker === null){
@@ -531,6 +544,16 @@ function locationAlreadyCompleted(coords){
   return false;
 }
 
+function gameFinished(){
+    completedAllAreas.play();
+    
+    $('.center-div').css('color', 'gold').html('You did it!!<br>You saved our neighbourhood!!<br/>Click here to return to Main Menu?').fadeIn('slow');
+    $('.center-div').click(function(e){
+        window.location.replace('index.html');
+    });
+}
+
+var completedCount = 0;
 function checkIfWithinScaryZone(currentLocation){
     for (var i = 0; i < scaryZones.length; i++) {
         var inZone = google.maps.geometry.spherical.computeDistanceBetween(
@@ -538,13 +561,21 @@ function checkIfWithinScaryZone(currentLocation){
             currentLocation) <= searchRadius; 
   
         var completed = locationAlreadyCompleted(scaryZones[i]);
+        
+        if (completed){
+            completedCount++;
+        }
 
-        if (inZone && !completed) {
-            console.log('=> is in searchArea');
-            
-            inScaryZone(scaryZones[i]);
-        } else {
-            console.log('=> is NOT in searchArea');
+        if (completedCount < scaryZones.length){
+            if (inZone && !completed) {
+                console.log('=> is in searchArea');
+
+                inScaryZone(scaryZones[i]);
+            } else {
+                console.log('=> is NOT in searchArea');
+            }
+        }else{
+            gameFinished();
         }
     }
 }
