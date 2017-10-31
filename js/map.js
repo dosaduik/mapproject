@@ -536,7 +536,8 @@ function locationAlreadyCompleted(coords){
       var completedAreaMarker = new google.maps.Marker({
           position: completedLatLng,
           map: map,
-          icon: completedLevelIcon
+          icon: completedLevelIcon,
+		  zIndex: google.maps.Marker.MAX_ZINDEX 
       });
 
       completedAreaMarker.setMap(map);
