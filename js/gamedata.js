@@ -16,6 +16,11 @@ function getGameData(){
         gameData.playerHitPoints = 500;
     }
 
+    if (!gameData.score)
+    {
+        gameData.score = 0;
+    }
+
     if (!gameData.completedLocations)
     {
         gameData.completedLocations = []               

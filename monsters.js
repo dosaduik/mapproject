@@ -152,7 +152,7 @@ function makeMonstersAppear(){
 
         gameData.playerHitPoints = totalPlayerHitPoints;
         saveGameData(gameData);
-        $('.playerStatus').html('Hit Points: ' + totalPlayerHitPoints + '<br/>Areas Cleared: ' + gameData.level);
+        updatePlayerStats(gameData);
         
         if (totalPlayerHitPoints <= 0){
 
@@ -163,6 +163,12 @@ function makeMonstersAppear(){
     });
     
     return newMonsterImg;
+}
+
+function updatePlayerStats(gameData){
+    $('.playerStatus').html('Score: ' + gameData.score + ' Areas Cleared: ' + gameData.level + '<br><span style="color: red;">Hit Points: ' + gameData.playerHitPoints + '</span>');
+
+    
 }
 
 function hasAttr(element, attrName){
@@ -205,6 +211,14 @@ function hitMonster(element){
 
         if (hitPoints <=0)
         {
+            var gameData = getGameData();
+            var scorePoints = $(element).attr('data-scorepoints');
+            gameData.score += parseInt(scorePoints);
+
+            saveGameData(gameData);
+
+            updatePlayerStats(gameData);
+
             console.log('Killed Monster')
             monstersKilled++;
             $(element).stop();
@@ -214,8 +228,6 @@ function hitMonster(element){
             
             if (monstersKilled >= monsterMax){
                 monsterCount = 0;
-
-                var gameData = getGameData();
 
                 gameData.level++;
                 gameData.playerHitPoints = totalPlayerHitPoints;
@@ -274,13 +286,18 @@ $(function(){
     }
     var gameData = getGameData();
     
-    monsterMax = 10;//gameData.level + 1
+    monsterMax = gameData.level + 1
     generateMonsters(generateMonster, monsterMax);
     
     totalPlayerHitPoints = gameData.playerHitPoints;
-    $('.playerStatus').html('Hit Points: ' + totalPlayerHitPoints + '<br/>Areas Cleared: ' + gameData.level);
+    updatePlayerStats(gameData);
 
     $(window).on('mousemove', function(e){
+
+        if (screenfull.enabled) {
+            screenfull.request();
+        }
+
         e.preventDefault();
         var element = document.elementFromPoint(e.pageX, e.pageY);
         
@@ -295,6 +312,11 @@ $(function(){
     
     document.addEventListener('touchmove', function(e){
         e.preventDefault();
+
+        if (screenfull.enabled) {
+            screenfull.request();
+        }
+
         var touch = e.touches[0];
         var element = document.elementFromPoint(touch.pageX, touch.pageY);
         

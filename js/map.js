@@ -237,6 +237,7 @@ var src = 'https://www.digitari.ca/kml/2016HalloweenOliver.kmz';
 //var heroIcon = 'https://www.digitari.ca/mapproject/icons/knight-icon.png';
 var heroIcon = 'https://www.digitari.ca/mapproject/assets/jack/png/Jack%20Walk%20Icon.png';
 var heroDeadIcon = 'https://www.digitari.ca/mapproject/assets/jack/png/Jack%20Dead%20Icon.png';
+var completedLevelIcon = 'https://www.digitari.ca/mapproject/assets/gifs/Pumpkin-icon.png';
 var currentLatLng = null;
 var heroMarker = null;
 var backgroundSound = new Howl({
@@ -295,31 +296,34 @@ function showPosition(position) {
         heroMarker = new google.maps.Marker({
           position: currentLatLng,
           map: map,
-          icon: heroDeadIcon
+          icon: heroDeadIcon,
+          zIndex: google.maps.Marker.MAX_ZINDEX + 1
       });
 
       heroMarker.setMap(map);
       
       heroMarker.setPosition(currentLatLng);   
-      map.setCenter(currentLatLng);
 
       gameOverSound.play();
 
       $('.center-div').css('color', 'red').html('Game Over<br/>Click here to Play Again?').fadeIn('slow');
+      $('.center-div').click(function(e){
+        window.location.replace('index.html');
+    });
     }
     else{
       if (heroMarker === null){
           heroMarker = new google.maps.Marker({
               position: currentLatLng,
               map: map,
-              icon: heroIcon
+              icon: heroIcon,
+              zIndex: google.maps.Marker.MAX_ZINDEX + 1
           });
       }
 
       heroMarker.setMap(map);
       
       heroMarker.setPosition(currentLatLng);   
-      map.setCenter(currentLatLng);
       
       checkIfWithinScaryZone(currentLatLng);
     }
@@ -356,16 +360,22 @@ function initMap() {
         
     map = new google.maps.Map(document.getElementById('map'), {
         center: new google.maps.LatLng(53.542746304851434, -113.52584484874876),
-        zoom: 16,
+        zoom: 18,
         mapTypeId: 'terrain',
         styles: scaryMapStyle,
         zoomControl: true,
         mapTypeControl: false,
-        scaleControl: true,
+        scaleControl: false,
         streetViewControl: false,
         rotateControl: true,
         fullscreenControl: true        
     });
+
+      //Resize Function
+		google.maps.event.addDomListener(window, "resize", function() {
+			google.maps.event.trigger(map, "resize");
+			map.setCenter(currentLatLng);
+		});
     
     // Create the DIV to hold the control and call the CenterControl()
     // constructor passing in this DIV.
@@ -374,7 +384,6 @@ function initMap() {
 
     centerControlDiv.index = 1;
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
-
 
     var kmlLayer = new google.maps.KmlLayer(src, {
       suppressInfoWindows: true,
@@ -409,7 +418,7 @@ function CenterControl(controlDiv, map) {
     controlUI.style.cursor = 'pointer';
     controlUI.style.marginBottom = '22px';
     controlUI.style.textAlign = 'center';
-    controlUI.style.width = '200px';
+    controlUI.style.width = '300px';
     //controlUI.style.height = '100px';
     controlUI.title = 'Click to recenter the map';
     controlDiv.appendChild(controlUI);
@@ -425,7 +434,7 @@ function CenterControl(controlDiv, map) {
 
     var gameData = getGameData();
 
-    controlText.innerHTML = 'Hit Points: ' + gameData.playerHitPoints + '<br/>Areas Cleared: ' + gameData.level;
+    controlText.innerHTML = 'Score: ' + gameData.score + ' Areas Cleared: ' + gameData.level +'<br><span style="color: red;">Hit Points: ' + gameData.playerHitPoints + '</span>';
     controlUI.appendChild(controlText);
 
     // Setup the click event listeners: simply set the map to Chicago.
@@ -433,12 +442,6 @@ function CenterControl(controlDiv, map) {
 
       map.setCenter(currentLatLng);
 
-      clearGameData();
-
-
-      // if (screenfull.enabled) {
-      //   screenfull.request();
-      // }
     });
 
 }
@@ -474,7 +477,7 @@ function showError(error) {
 function centerMapOnEdmonton()
 {
     var mapDiv = document.getElementById('map');
-    var map = new google.maps.Map(mapDiv, {
+    map = new google.maps.Map(mapDiv, {
         center: {lat: 53.5333, lng: -113.5000},
         zoom: 13
     });   
@@ -510,6 +513,17 @@ function locationAlreadyCompleted(coords){
     var completedLocation = JSON.parse(gameData.completedLocations[i].coords);
     if (coords.lat() === completedLocation.lat 
         && coords.lng() === completedLocation.lng){
+
+      var completedLatLng = new google.maps.LatLng(completedLocation.lat, completedLocation.lng);
+
+      var completedAreaMarker = new google.maps.Marker({
+          position: completedLatLng,
+          map: map,
+          icon: completedLevelIcon
+      });
+
+      completedAreaMarker.setMap(map);
+
       return true;
     }
   }
