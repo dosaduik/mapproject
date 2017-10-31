@@ -233,8 +233,10 @@ var scaryMapStyle = [
                     ]
                   }
                 ];
-var src = 'https://www.digitari.ca/kml/2016HalloweenOliver.kmz';
-//var heroIcon = 'https://www.digitari.ca/mapproject/icons/knight-icon.png';
+				
+//var src = 'https://www.digitari.ca/kml/2016HalloweenOliver.kmz';
+var src = 'https://www.digitari.ca/kml/HalloweenMap2017.kmz';
+
 var heroIcon = 'https://www.digitari.ca/mapproject/assets/jack/png/Jack%20Walk%20Icon.png';
 var heroDeadIcon = 'https://www.digitari.ca/mapproject/assets/jack/png/Jack%20Dead%20Icon.png';
 var completedLevelIcon = 'https://www.digitari.ca/mapproject/assets/gifs/Pumpkin-icon.png';
@@ -499,7 +501,8 @@ function centerMapOnEdmonton()
 function readPoints(){
     $.ajax({
         type: "GET",
-        url: "2016HalloweenOliver\\doc.kml",
+        //url: "2016HalloweenOliver\\doc.kml",		
+        url: "2017Map\\doc.kml",
         dataType: "xml",
         success: function(xml) {
             $(xml).find('Point').each(function(){
