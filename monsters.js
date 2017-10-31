@@ -269,10 +269,10 @@ $(function(){
     if (screenfull.enabled) {
         screenfull.request();
     }
-
-    generateMonsters(generateMonster, 5);
-    
     var gameData = getGameData();
+    
+    monsterMax = gameData.level + 1
+    generateMonsters(generateMonster, monsterMax);
     
     totalPlayerHitPoints = gameData.playerHitPoints;
     $('.playerStatus').html('Hit Points: ' + totalPlayerHitPoints + '<br/>Levels Complete: ' + gameData.level);
