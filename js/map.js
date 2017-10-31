@@ -234,7 +234,9 @@ var scaryMapStyle = [
                   }
                 ];
 var src = 'https://www.digitari.ca/kml/2016HalloweenOliver.kmz';
-var heroIcon = 'https://www.digitari.ca/mapproject/icons/knight-icon.png';
+//var heroIcon = 'https://www.digitari.ca/mapproject/icons/knight-icon.png';
+var heroIcon = 'https://www.digitari.ca/mapproject/assets/jack/png/Jack%20Walk%20Icon.png';
+var heroDeadIcon = 'https://www.digitari.ca/mapproject/assets/jack/png/Jack%20Dead%20Icon.png';
 var currentLatLng = null;
 var heroMarker = null;
 var backgroundSound = new Howl({
@@ -259,6 +261,11 @@ var bonus = new Howl({
         preload: true
     });
 
+var gameOverSound = new Howl({
+      src: ['./sound/cartoon_fail_strings_trumpet.mp3'],
+      preload: true
+  });
+
 var playingScaryZoneSounds = false;
 var scaryZoneSounds = new Howl({
         src: ['./sound/bottlerocket_Whoosh_Twisted Vocal_04.mp3', './sound/zapsplat_horror_cinematic_hit_wooden_dark_scary_hard.mp3'],
@@ -282,20 +289,38 @@ function showPosition(position) {
 
     currentLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     
-    if (heroMarker === null){
+    var gameData = getGameData();
+
+    if (gameData.playerHitPoints <= 0) {
         heroMarker = new google.maps.Marker({
-            position: currentLatLng,
-            map: map,
-            icon: heroIcon
-        });
+          position: currentLatLng,
+          map: map,
+          icon: heroDeadIcon
+      });
+
+      heroMarker.setMap(map);
+      
+      heroMarker.setPosition(currentLatLng);   
+      map.setCenter(currentLatLng);
+
+      gameOverSound.play();
     }
-    
-    heroMarker.setMap(map);
-    
-    heroMarker.setPosition(currentLatLng);   
-    map.setCenter(currentLatLng);
-    
-    checkIfWithinScaryZone(currentLatLng);
+    else{
+      if (heroMarker === null){
+          heroMarker = new google.maps.Marker({
+              position: currentLatLng,
+              map: map,
+              icon: heroIcon
+          });
+      }
+
+      heroMarker.setMap(map);
+      
+      heroMarker.setPosition(currentLatLng);   
+      map.setCenter(currentLatLng);
+      
+      checkIfWithinScaryZone(currentLatLng);
+    }
 }
 
 function initMap() {
