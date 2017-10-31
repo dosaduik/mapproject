@@ -559,14 +559,15 @@ function locationAlreadyCompleted(coords){
 function gameFinished(){
     completedAllAreas.play();
     
-    $('.center-div').css('color', 'gold').html('You did it!!<br>You saved our neighbourhood!!<br/>Click here to return to Main Menu?').fadeIn('slow');
+    $('.center-div').css('color', 'gold').html('You saved our neighbourhood!!<br/><br/>Click here to return to Main Menu').fadeIn('slow');
     $('.center-div').click(function(e){
         window.location.replace('index.html');
     });
 }
 
-var completedCount = 0;
+
 function checkIfWithinScaryZone(currentLocation){
+    var completedCount = 0;
     for (var i = 0; i < scaryZones.length; i++) {
         var inZone = google.maps.geometry.spherical.computeDistanceBetween(
             scaryZones[i], 
