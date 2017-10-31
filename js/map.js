@@ -237,21 +237,26 @@ var scaryMapStyle = [
 //var src = 'https://www.digitari.ca/kml/2016HalloweenOliver.kmz';
 var src = 'https://www.digitari.ca/kml/HalloweenMap2017.kmz';
 
-var heroIcon = 'https://www.digitari.ca/mapproject/assets/jack/png/Jack%20Walk%20Icon.png';
-var heroDeadIcon = 'https://www.digitari.ca/mapproject/assets/jack/png/Jack%20Dead%20Icon.png';
-var completedLevelIcon = 'https://www.digitari.ca/mapproject/assets/gifs/Pumpkin-icon.png';
 var currentLatLng = null;
 var heroMarker = null;
-var backgroundSound = new Howl({
+
+var heroIcon = 'https://www.digitari.ca/mapproject/assets/jack/png/Jack%20Walk%20Icon.png';
+var heroDeadIcon = 'https://www.digitari.ca/mapproject/assets/jack/png/Jack%20Dead%20Icon.png';
+
+//var completedLevelIcon = 'https://www.digitari.ca/mapproject/assets/gifs/Pumpkin-icon.png';
+var completedLevelIcon = 'https://www.digitari.ca/mapproject/assets/gifs/accept-icon.png';
+
+//var backgroundSound = new Howl({
         //src: ['./sound/difficult_desicions.mp3'],
         //src: ['./sound/music_zapsplat_trick_or_treat.mp3'],
         //src: ['./sound/SpookyScarySkeletons.mp3'],
         //src: ['./sound/music_zapsplat_disco_streets.mp3'],
-        src: ['./sound/Deadmau5 - Creep.mp3'],
-        loop: true,
-        preload: true,
-        html5: true
-    });
+//        src: ['./sound/Deadmau5 - Creep.mp3'],
+//       loop: true,
+//        preload: true,
+//        html5: true
+//    });
+	
 var backgroundStarted = false;
 
 var selectTone = new Howl({
@@ -297,9 +302,9 @@ var completedAllAreas = new Howl({
 var scaryZones = [];
 var searchRadius = 20;
 
-function enableSound(){
-  backgroundSound.play();
-}
+//function enableSound(){
+//  backgroundSound.play();
+//}
 
 function showPosition(position) {
 
@@ -347,10 +352,10 @@ function showPosition(position) {
 function initMap() {
 
 
-    JSZipUtils.getBinaryContent('./2016HalloweenOliver.kmz', function(err, data) {
-        if(err) {
-            throw err; // or handle err
-        }
+    //JSZipUtils.getBinaryContent('./2016HalloweenOliver.kmz', function(err, data) {
+        //if(err) {
+            //throw err; // or handle err
+        //}
 
         // JSZip.loadAsync(data).then(function (results) {
         //     var decompressed = results;
@@ -369,10 +374,8 @@ function initMap() {
         //         var kmlDoc = $.parseXML(data);   
         //     });
         // });
-    });
+    //});
 
- 
-        
     map = new google.maps.Map(document.getElementById('map'), {
         center: new google.maps.LatLng(53.542746304851434, -113.52584484874876),
         zoom: 18,
@@ -418,8 +421,6 @@ function initMap() {
     readPoints();
 
 }
-
-
 
 function CenterControl(controlDiv, map) {
 
