@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Halloween Map</name>
+    <description/>
+    <Style id="icon-ci-1-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-ci-1-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-ci-1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-ci-1-nodesc-normal">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-ci-1-nodesc-highlight">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-ci-1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-ci-1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-ci-1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Halloween Locations</name>
+      <Placemark>
+        <name>11907 103 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.527212,53.544477,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>NVE Institute</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.5320254,53.5426886,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11616 102 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.521931,53.543293,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Urban Tavern</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.521634,53.5412782,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Oliver Community League Fire Pit</name>
+        <description><![CDATA[<img src="https://lh3.googleusercontent.com/xVTvWP0te-x5MijWEu3WNRbja4tGPOmslyE2gHyo-Q57EoOkCIxB5zr5jdOgwHKj7jFNYsxGsl__Ge-gPT1-dZcchTnmqwkNN9aWXUEM9lyK2t1fsJE8RNA9cRfnlkM" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-ci-1</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh3.googleusercontent.com/xVTvWP0te-x5MijWEu3WNRbja4tGPOmslyE2gHyo-Q57EoOkCIxB5zr5jdOgwHKj7jFNYsxGsl__Ge-gPT1-dZcchTnmqwkNN9aWXUEM9lyK2t1fsJE8RNA9cRfnlkM</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -113.5185957,53.5445151,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10260 116 St NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.5215738,53.5443593,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Grace Lutheran Church</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.51748,53.5376782,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10220 115 St NW</name>
+        <description><![CDATA[<img src="https://lh5.googleusercontent.com/7pvN3rQ1c2SRv3dBpiWbIa9zgvI6egWezUgg3RrjraxEieVWQ5hiN84V-rvD_Edd1u9dP0jSktEyT4C5_V_7zSf5bAzUS6yAF2tw0AtNPJUesLBsLNcIv44BF93mdncB" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-ci-1</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh5.googleusercontent.com/7pvN3rQ1c2SRv3dBpiWbIa9zgvI6egWezUgg3RrjraxEieVWQ5hiN84V-rvD_Edd1u9dP0jSktEyT4C5_V_7zSf5bAzUS6yAF2tw0AtNPJUesLBsLNcIv44BF93mdncB</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -113.519976,53.543555,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11512 102 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.519948,53.543183,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11915 103 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.527647,53.544478,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10040 114 St NW </name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.51813,53.5400608,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11913 103 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.527547,53.544478,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9816 112 St NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.51448,53.536047,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10210 121 St NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.531202,53.543447,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11716 100 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.524469,53.5399109,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Anglican Parish of Christ Church</name>
+        <description><![CDATA[<img src="https://lh4.googleusercontent.com/oHS_qNAcePq6XQI4qSaTuJJHxi3odDVRv0nnMbJDNVGF0oBbyIBOerXGMhunAqVyKNALmVEVt0FOxxNuIFjkzkm3ON5NMDDOMXZ-M7FwGTXH6-Y-iHzm8sEPjGMKI71P" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-ci-1</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh4.googleusercontent.com/oHS_qNAcePq6XQI4qSaTuJJHxi3odDVRv0nnMbJDNVGF0oBbyIBOerXGMhunAqVyKNALmVEVt0FOxxNuIFjkzkm3ON5NMDDOMXZ-M7FwGTXH6-Y-iHzm8sEPjGMKI71P</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -113.531808,53.5432429,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10160 119 St NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.527308,53.5422613,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[9940 112 St NW (between 5:30 & 6 pm only)]]></name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.5142153,53.5385838,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11313 102 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.516341,53.542803,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9733 111 St NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.511584,53.5350759,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Juliette Manor</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.5264224,53.5442632,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Jellinek House</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.515507,53.538559,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10235 117 St NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.5226148,53.5439488,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11928 102 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.5285628,53.54317,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11650 103 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.5226329,53.5447697,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12028 103 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.5302102,53.5447839,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12304 103 Ave NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.534628,53.544775,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10308 113 St NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.5160519,53.5449345,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10131 122 St NW</name>
+        <styleUrl>#icon-ci-1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -113.531932,53.54216,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Randy Boissonault's Office]]></name>
+        <description>Candy available between 9 am and 5 pm.</description>
+        <styleUrl>#icon-ci-1</styleUrl>
+        <Point>
+          <coordinates>
+            -113.53562,53.543997,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
