@@ -304,6 +304,8 @@ function showPosition(position) {
       map.setCenter(currentLatLng);
 
       gameOverSound.play();
+
+      $('.center-div').css('color', 'red').html('Game Over<br/>Click here to Play Again?').fadeIn('slow');
     }
     else{
       if (heroMarker === null){
@@ -423,7 +425,7 @@ function CenterControl(controlDiv, map) {
 
     var gameData = getGameData();
 
-    controlText.innerHTML = 'Hit Points: ' + gameData.playerHitPoints + '<br/>Levels Complete: ' + gameData.level;
+    controlText.innerHTML = 'Hit Points: ' + gameData.playerHitPoints + '<br/>Areas Cleared: ' + gameData.level;
     controlUI.appendChild(controlText);
 
     // Setup the click event listeners: simply set the map to Chicago.

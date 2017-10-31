@@ -20,3 +20,21 @@ body{
     top: 0; 
 }
 
+.center-div{
+    text-align: center;
+    font-family: Arial;
+    display: none;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 700px;
+    height: 200px;
+    color: gold;
+    font-size: 72px;
+    font-weight: bold;
+    border-radius: 3px;
+    z-index: 100;
+}

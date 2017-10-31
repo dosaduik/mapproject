@@ -86,7 +86,7 @@ function getRandomInt(min, max) {
 
 function levelClear(){
 
-    window.location.replace('index.html');
+    window.location.replace('map.html');
 
 }
 
@@ -152,9 +152,11 @@ function makeMonstersAppear(){
 
         gameData.playerHitPoints = totalPlayerHitPoints;
         saveGameData(gameData);
-        $('.playerStatus').html('Hit Points: ' + totalPlayerHitPoints + '<br/>Levels Complete: ' + gameData.level);
+        $('.playerStatus').html('Hit Points: ' + totalPlayerHitPoints + '<br/>Areas Cleared: ' + gameData.level);
         
         if (totalPlayerHitPoints <= 0){
+
+            $('.center-div').css('color', 'red').text('You Died!').fadeIn('slow');
             deathScream.play();
         }
 
@@ -222,6 +224,8 @@ function hitMonster(element){
                 gameData.completedLocations.push({coords: coords});
  
                 saveGameData(gameData);
+
+                $('.center-div').css('color', 'gold').text('Area Clear!').fadeIn('slow');
                 levelClearSound.play();
                 
             }
@@ -274,7 +278,7 @@ $(function(){
     generateMonsters(generateMonster, monsterMax);
     
     totalPlayerHitPoints = gameData.playerHitPoints;
-    $('.playerStatus').html('Hit Points: ' + totalPlayerHitPoints + '<br/>Levels Complete: ' + gameData.level);
+    $('.playerStatus').html('Hit Points: ' + totalPlayerHitPoints + '<br/>Areas Cleared: ' + gameData.level);
 
     $(window).on('mousemove', function(e){
         e.preventDefault();
